@@ -4,6 +4,9 @@
   "main": "src/index.ts",
   "compatibility_date": "2026-08-03",
   "compatibility_flags": ["nodejs_compat"],
+  "routes": [
+    { "pattern": "mcp.nbmecalc.com", "custom_domain": true }
+  ],
   "durable_objects": {
     "bindings": [
       { "name": "NBMECALC_MCP", "class_name": "NBMEcalcMCP" }

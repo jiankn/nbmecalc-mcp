@@ -1,0 +1,25 @@
+name: verify-production
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify health endpoint
+        run: |
+          curl --fail --silent --show-error \
+            https://nbmecalc-mcp.chenxuanshimo.workers.dev/health \
+            | jq -e '.status == "ok" and .algorithmVersion == "v1.1"'
+      - name: Verify MCP initialization
+        run: |
+          response="$(curl --fail --silent --show-error \
+            -X POST https://nbmecalc-mcp.chenxuanshimo.workers.dev/mcp \
+            -H 'Accept: application/json, text/event-stream' \
+            -H 'Content-Type: application/json' \
+            --data '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"github-verifier","version":"1.0.0"}}}')"
+          echo "$response" | grep -q 'NBMEcalc educational score tools'

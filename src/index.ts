@@ -4,7 +4,7 @@ import { z } from "zod";
 import { ALGORITHM_VERSION, convert } from "./calculate";
 
 export class NBMEcalcMCP extends McpAgent<Env, Record<string, never>, Record<string, never>> {
-  server = new McpServer({ name: "NBMEcalc educational score tools", version: "1.0.0" });
+  server = new McpServer({ name: "NBMEcalc educational score tools", version: "1.0.1" });
   initialState = {};
 
   async init(): Promise<void> {

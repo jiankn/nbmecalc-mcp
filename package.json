@@ -1,6 +1,6 @@
 {
   "name": "nbmecalc-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Remote MCP server for offline educational score conversion",
   "type": "module",
   "license": "Apache-2.0",

@@ -1,8 +1,8 @@
 # NBMEcalc MCP
 
-A remote Model Context Protocol server exposing the multi-source workflow used
-by the [NBMEcalc score predictor](https://nbmecalc.com/) as deterministic,
-offline educational score conversion.
+A remote Model Context Protocol server exposing deterministic, offline
+practice-assessment conversions for integrations that complement the
+[USMLE score predictor](https://nbmecalc.com/).
 
 The Streamable HTTP endpoint is `/mcp`. The server exposes
 `convert_practice_score` and returns the estimate together with the `v1.1`
